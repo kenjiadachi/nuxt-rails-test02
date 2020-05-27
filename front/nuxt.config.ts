@@ -71,12 +71,16 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config: any, ctx: any) {
     }
   },
   watchers: {
     webpack: {
       poll: true
     }
+  },
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true
   }
 }
