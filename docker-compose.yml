@@ -17,8 +17,8 @@ services:
       - ./back:/app
     depends_on:
       - db
-    # ports:
-    #   - 3000:3000
+    tty: true
+    stdin_open: true
 
   front:
     container_name: sample_front

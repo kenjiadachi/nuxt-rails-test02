@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## デバッグ方法
 
-Things you may want to cover:
+以下の手順で`binding.pry`が使用可能です。
 
-* Ruby version
+1. デバッグしたい箇所に`binding.pry`を挿入
+2. `docker attach sample_back`を実行
+3. デバッグしたい処理を実行
 
-* System dependencies
 
-* Configuration
+## RSpecの設定
 
-* Database creation
+テストツールとしてRSpecを導入しています。
 
-* Database initialization
+下記の手順で実行可能です。
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `docker-compose exec back sh`を実行
+2. `rails spec spec/models/user_spec.rb`など
