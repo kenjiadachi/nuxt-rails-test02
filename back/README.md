@@ -13,7 +13,7 @@
 
 テストツールとしてRSpecを導入しています。
 
-下記の手順で実行可能です。
+springを導入しているので下記の手順で実行可能です。
 
-1. `docker-compose exec back sh`を実行
+1. `docker-compose exec spring rails spec back/spec/models/user_spec.rb`を実行
 2. `rails spec spec/models/user_spec.rb`など
