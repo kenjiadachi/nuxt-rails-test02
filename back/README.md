@@ -9,7 +9,7 @@
 3. デバッグしたい処理を実行
 
 
-## RSpecの設定
+## RSpec
 
 テストツールとしてRSpecを導入しています。
 
@@ -17,3 +17,11 @@ springを導入しているので下記の手順で実行可能です。
 
 1. `docker-compose exec spring rails spec back/spec/models/user_spec.rb`を実行
 2. `rails spec spec/models/user_spec.rb`など
+
+## 静的解析
+
+`Rails Best Practices`を導入しています。
+
+下記コマンドで静的解析を実行可能です。
+
+`docker-compose exec spring bundle exec rails_best_practices`

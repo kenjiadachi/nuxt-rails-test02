@@ -37,6 +37,8 @@ group :development, :test do
   # デバッグツール
   gem 'pry-rails'
   gem 'pry-byebug'
+  # コーディング規約
+  gem 'rails_best_practices'
 end
 
 group :development do
