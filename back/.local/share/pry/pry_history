@@ -1,2 +1,10 @@
 @user
 exit
+User.all
+User.destroy_all
+User.all
+exit
+User.all
+User.columns
+User.column_names
+exit
