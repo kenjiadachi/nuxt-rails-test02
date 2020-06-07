@@ -19,5 +19,4 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 // 今回使用するAPI
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
+export const fireBase = firebase

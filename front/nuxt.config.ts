@@ -95,6 +95,6 @@ export default {
   },
   typescript: {
     typeCheck: true,
-    ignoreNotFoundWarnings: false
+    ignoreNotFoundWarnings: true
   }
 }
