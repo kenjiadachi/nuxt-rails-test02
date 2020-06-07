@@ -24,13 +24,13 @@ export default {
   methods: {
     googleLogin() {
       var provider = new fireBase.auth.GoogleAuthProvider();
+      var self = this;
       fireBase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(token, user)
-        this.$axios.post(
+        self.$axios.post(
           '/api/users', { 
             name: result.user.displayName,
             email: result.user.email,
@@ -38,6 +38,7 @@ export default {
             uid: result.user.uid,
           }
         ).then((res) => {
+          console.log(res);
           // this.$router.push(`${res.data.id}`)
         })
       }).catch(function(error) {
