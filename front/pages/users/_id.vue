@@ -2,11 +2,11 @@
   <h1>Hello, {{ name }}</h1>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  asyncData({ $axios, params }) {
+  asyncData({ $axios, params }: {$axios: any, params: any}) {
     return $axios.$get(`/api/users/${params.id}`)
-      .then((res) => {
+      .then((res: any) => {
         return { name: res.name }
       })
   }

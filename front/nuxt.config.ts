@@ -1,4 +1,7 @@
 
+require('dotenv').config();
+const { BASE_URL, FB_API_KEY, FB_AUTH_DOMAIN, FB_DB_URL, FB_PJ_ID, FB_STORAGE_BACKET, FB_MESSAGING_SENDER_ID, FB_APP_ID, FB_MEASUREMENT_ID } = process.env;
+
 export default {
   mode: 'universal',
   /*
@@ -74,6 +77,17 @@ export default {
     extend(config: any, ctx: any) {
     }
   },
+  env: {
+    BASE_URL,
+    FB_API_KEY,
+    FB_AUTH_DOMAIN,
+    FB_DB_URL,
+    FB_PJ_ID,
+    FB_STORAGE_BACKET,
+    FB_MESSAGING_SENDER_ID,
+    FB_APP_ID,
+    FB_MEASUREMENT_ID
+  },
   watchers: {
     webpack: {
       poll: true
@@ -81,6 +95,6 @@ export default {
   },
   typescript: {
     typeCheck: true,
-    ignoreNotFoundWarnings: true
+    ignoreNotFoundWarnings: false
   }
 }
