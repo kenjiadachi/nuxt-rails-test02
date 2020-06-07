@@ -1,73 +1,59 @@
-<template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        sample-app
-      </h1>
-      <h2 class="subtitle">
-        My awesome Nuxt.js
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang='pug'>
+  section.hero.is-fullheight
+    .hero-body
+      .container
+        h1.title
+          | Fullheight title
+        h2.subtitle
+          | Fullheight subtitle
+        button.button.is-primary(@click="googleLogin()")
+          span.icon
+            i.fab.fa-google
+          span Login with Google
+
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
-
-export default Vue.extend({
-  components: {
-    Logo
+import { fireBase } from '../plugins/firebase'
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    googleLogin() {
+      var provider = new fireBase.auth.GoogleAuthProvider();
+      fireBase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        console.log(token, user)
+        this.$axios.post(
+          '/api/users', { 
+            name: result.user.displayName,
+            email: result.user.email,
+            image: result.user.photoURL,
+            uid: result.user.uid,
+          }
+        ).then((res) => {
+          // this.$router.push(`${res.data.id}`)
+        })
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    }
   }
-})
+}
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
