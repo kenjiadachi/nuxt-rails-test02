@@ -37,7 +37,11 @@ export default {
           }
         ).then((res) => {
           console.log(res);
-          // this.$router.push(`${res.data.id}`)
+          let userObj = {
+            name: res.data.name,
+            image: res.data.image,
+          }
+          self.$store.dispatch('user/setUser', userObj)
         })
       }).catch(function(error) {
         // Handle Errors here.
