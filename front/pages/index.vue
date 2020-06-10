@@ -10,6 +10,8 @@
           span.icon
             i.fab.fa-google
           span Login with Google
+        button.button.is-danger(@click="setError()")
+          span setError
 
 </template>
 
@@ -26,10 +28,6 @@ export default {
       var provider = new fireBase.auth.GoogleAuthProvider();
       var self = this;
       fireBase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
         self.$axios.post(
           '/api/users', { 
             name: result.user.displayName,
@@ -43,14 +41,11 @@ export default {
         })
       }).catch(function(error) {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
+        self.$store.dispatch('error/setMessage', error.message)
       });
+    },
+    setError() {  
+      this.$store.dispatch('error/setMessage', 'error!!!')
     }
   }
 }

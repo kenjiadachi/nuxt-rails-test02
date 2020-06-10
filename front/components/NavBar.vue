@@ -28,7 +28,7 @@ nav.navbar.has-background-light
 export default {
   data() {
     return {
-      showNav: true,
+      showNav: false,
       items: [
         { title: 'Home', icon: 'home', url: '/' },
         { title: 'Feature', icon: 'code', url: '/feature' },
