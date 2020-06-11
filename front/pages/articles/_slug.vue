@@ -26,3 +26,16 @@ export default {
   }
 }
 </script>
+
+<style lang='stylus' scoped>
+
+.nuxt-content
+  h1, h2, h3, h4, h5, h6
+    word-break: break-word;
+    color: #363636;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.125;
+    margin-bottom: 1.5rem;
+
+</style>
