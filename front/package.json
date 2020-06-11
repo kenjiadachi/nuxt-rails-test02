@@ -25,7 +25,8 @@
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
