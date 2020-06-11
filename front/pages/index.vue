@@ -6,6 +6,8 @@
           | Fullheight title
         h2.subtitle
           | Fullheight subtitle
+        h1
+          | test
         button.button.is-primary(@click="googleLogin()")
           span.icon
             i.fab.fa-google
@@ -18,10 +20,9 @@
 <script lang="ts">
 import { fireBase } from '../plugins/firebase'
 export default {
-  data() {
-    return {
-      
-    }
+  async asyncData({ $content }) {
+    const articles = await $content("articles").limit(5).fetch();
+    return { articles };
   },
   methods: {
     googleLogin() {
