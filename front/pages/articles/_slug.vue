@@ -1,13 +1,21 @@
 <template lang='pug'>
 article
-  h1 {{article.title}}
-  dl
-    dt date
-    dd {{article.date}}
-  div
-    img(:src="article.image")
-  div(v-for="tag in article.tags" :key="tag") {{tag}}
-  nuxt-content(:document="article")
+  section.hero
+      .hero-body
+        .container
+          h1.title
+            | {{article.title}}
+          h2.subtitle
+            | {{article.description}}
+  section.section
+    figure.image.is-2by1
+      img(:src="article.image")
+  section.section.tags.are-medium
+    span.tag(v-for="tag in article.tags" :key="tag")
+      | {{tag}}
+  section.section
+    nuxt-content(:document="article")
+
 </template>
 
 <script lang='ts'>

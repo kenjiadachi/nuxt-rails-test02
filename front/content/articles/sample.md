@@ -1,6 +1,8 @@
 ---
 title: Introduction
 description: Learn how to use @nuxtjs/content.
+tags: ['sample', 'test']
+image: '/3000.png'
 ---
 
 # Lorem ipsum
@@ -19,7 +21,7 @@ http.createServer((req, res) => {
   bodyParser.parse(req, (error, body) => {
     res.end(body)
   })
-}).listen(3000)
+}).listen()
 ```
 
 ##### elit
