@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.
+description: Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.Learn how to use @nuxtjs/content.
 tags: ['sample', 'test']
 image: '/3000.png'
 ---
