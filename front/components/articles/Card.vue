@@ -1,5 +1,5 @@
 <template lang='pug'>
-.card
+nuxt-link.card(:to="article.path")
   .card-image
     figure.image.is-2by1
       img(:src="article.image")
