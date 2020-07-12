@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    container_name: sample_db
+    container_name: test02_db
     image: postgres:11.4-alpine
     environment:
       - TZ=Asia/Tokyo
@@ -10,7 +10,7 @@ services:
       - ./back/tmp/db:/var/lib/postgresql/data
 
   back: &back
-    container_name: sample_back
+    container_name: test02_back
     build: back/
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -22,14 +22,14 @@ services:
   
   spring:
     <<: *back
-    container_name: sample_spring
+    container_name: test02_spring
     command: ["bundle", "exec", "spring", "server"]
     ports: []
     tty: false
     stdin_open: false
 
   front:
-    container_name: sample_front
+    container_name: test02_front
     build: front/
     command: yarn run dev
     volumes:
